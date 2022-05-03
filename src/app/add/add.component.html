@@ -1,0 +1,64 @@
+<!-- <h1>Register</h1>
+
+Enter Cid : <input type="text" [(ngModel)]="cid"><br><br>
+Enter Pid : <input type="text" [(ngModel)]="pid"><br><br>
+Enter Commenter : <input type="text" [(ngModel)]="commenter"><br><br>
+Enter Comment : <input type="text" [(ngModel)]="comment"><br><br>
+<button (click)="insertComment()">Add Comment</button> -->
+
+<div class="container">
+    <form [formGroup]="formdata" (ngSubmit)="addBooks(formdata.value)">
+
+        <div class="form-group">
+            <label for="usr">Book Id:</label>
+            <input type="number" name="bid" formControlName="bid" placeholder="bid" class="form-control" id="usr">
+            <div *ngIf="formdata.controls['bid'].errors">
+                id must be 3 digit long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usr">name:</label>
+            <input type="text" name="name" formControlName="name" placeholder="name" class="form-control" id="pwd">
+            <div *ngIf="formdata.controls['name'].errors">
+                name must be 4 characters long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usr">Author:</label>
+            <input type="text" name="author" formControlName="author" placeholder="author" class="form-control" id="pwd">
+            <div *ngIf="formdata.controls['author'].errors">
+                author must be 4 characters long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usr">Price :</label>
+            <input type="number" name="price" formControlName="price" placeholder="price" class="form-control" id="usr">
+            <div *ngIf="formdata.controls['price'].errors">
+                Price must be at least 2 digit long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Quantity:</label>
+            <input type="number" name="quantity" formControlName="quantity" placeholder="quantity" class="form-control" id="quantity">
+            <div *ngIf="formdata.controls['quantity'].errors">
+                Comment must be at least 10 character long.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Description :</label>
+            <textarea name="info" formControlName="info" placeholder="Description" class="form-control" rows="5" id="info"></textarea>
+            <div *ngIf="formdata.controls['info'].errors">
+                Description must be at least 10 character long.
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Add Comment</button>
+        <button *ngIf="display" class="btn btn-success btn-block" disabled>Book Added Successfully..</button>
+
+    </form>
+</div>

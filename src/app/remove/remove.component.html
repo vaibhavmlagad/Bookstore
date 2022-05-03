@@ -1,0 +1,11 @@
+
+<div class="container">
+ 
+        <div class="form-group">
+            <label for="usr">Enter BookId to delete:</label>
+            <input type="number" [(ngModel)]="bid" class="form-control" placeholder="Enter bookid to delete....">
+        </div>
+
+        <button (click)="removeBook()" class="btn btn-primary btn-block">Remove</button>
+        <button *ngIf="display" class="btn btn-success btn-block" disabled>Book deleted Successfully..</button>
+</div>
